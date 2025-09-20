@@ -50,7 +50,7 @@ const Header = () => {
                 </button>
                 <button style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
                     <div style={{
-                        backgroundImage: 'url("https://avatars.githubusercontent.com/u/68498988?v=4")',
+                        backgroundImage: 'url("https://github.com/shadcn.png")',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',

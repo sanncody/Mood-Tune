@@ -1,1 +1,73 @@
-/* FacialExpression styles now handled by Tailwind CSS */
+.facial-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 750px;
+    aspect-ratio: 16 / 9;
+}
+
+.facial-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.facial-icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: rgba(56, 224, 123, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.facial-icon-span {
+    font-size: 2rem;
+    color: #38e07b;
+}
+
+.facial-video {
+    width: 200px;
+    height: 150px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.facial-button {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 100px;
+    height: 56px;
+    padding: 0 2rem;
+    background-color: #38e07b;
+    color: #111714;
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: -0.015em;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.facial-button:active {
+    transform: scaleY(0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.facial-button:hover {
+    background-color: #2cc16a;
+}

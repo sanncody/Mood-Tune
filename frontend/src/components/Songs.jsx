@@ -5,103 +5,50 @@ const Songs = ({ songs }) => {
     const [isPlaying, setIsPlaying] = useState(false);
 
     const handlePlayPause = (index) => {
-        isPlaying === index ? setIsPlaying(false) : setIsPlaying(index);
-    }
+        setIsPlaying(isPlaying === index ? false : index);
+    };
 
     return (
-        <div style={{
-            width: '100%',
-            maxWidth: '1200px',
-            margin: '0 auto'
-        }}>
-            <h2 style={{
-                color: '#fff',
-                fontSize: '1.875rem',
-                fontWeight: 'bold',
-                marginBottom: '2rem',
-                textAlign: 'center'
-            }}>Recommended Songs</h2>
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '1.5rem'
-            }}>
+        <div className="songs-container">
+            <h2 className="songs-title">Recommended Songs</h2>
+            <div className="songs-grid">
                 {songs && songs.map((song, index) => (
-                    <div key={`${Date.now()}-${index}`} style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                        borderRadius: '1rem',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        padding: '1.5rem',
-                        transition: 'all 0.3s ease'
-                    }}>
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            marginBottom: '1rem'
-                        }}>
-                            <div style={{ flex: 1, minWidth: 0 }}>
-                                <h3 style={{
-                                    color: '#fff',
-                                    fontSize: '1.125rem',
-                                    fontWeight: '600',
-                                    whiteSpace: 'nowrap',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    margin: 0
-                                }}>{song.title}</h3>
-                                <p style={{
-                                    color: 'rgba(255, 255, 255, 0.7)',
-                                    fontSize: '0.875rem',
-                                    whiteSpace: 'nowrap',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    margin: '0.25rem 0 0 0'
-                                }}>{song.artist}</p>
+                    <div key={`${Date.now()}-${index}`} className="song-card">
+                        <div className="song-header">
+                            <div className="song-info">
+                                <h3 className="song-title">{song.title}</h3>
+                                <p className="song-artist">{song.artist}</p>
                             </div>
-                            <div style={{ marginLeft: '1rem' }}>
-                                {isPlaying === index && <audio src={song.audioUrl} style={{ display: "none" }} autoPlay={isPlaying === index}></audio>}
+                            <div className="song-action">
+                                {isPlaying === index && (
+                                    <audio
+                                        src={song.audioUrl}
+                                        style={{ display: "none" }}
+                                        autoPlay={isPlaying === index}
+                                    />
+                                )}
                                 <button
+                                    className="play-button"
                                     onClick={() => handlePlayPause(index)}
-                                    style={{
-                                        display: 'flex',
-                                        height: '48px',
-                                        width: '48px',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        borderRadius: '50%',
-                                        backgroundColor: '#38e07b',
-                                        color: '#111714',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.3s ease'
-                                    }}
                                 >
-                                    <span className="material-symbols-outlined" style={{ fontSize: '1.5rem' }}>
-                                        {isPlaying === index ? <i class="ri-pause-circle-fill"></i> : <i class="ri-play-circle-fill"></i>}
+                                    <span className="material-symbols-outlined play-icon">
+                                        {isPlaying === index
+                                            ? <i className="ri-pause-circle-fill"></i>
+                                            : <i className="ri-play-circle-fill"></i>}
                                     </span>
                                 </button>
                             </div>
                         </div>
-                        <div style={{
-                            width: '100%',
-                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                            borderRadius: '9999px',
-                            height: '4px'
-                        }}>
-                            <div style={{
-                                backgroundColor: '#38e07b',
-                                height: '4px',
-                                borderRadius: '9999px',
-                                transition: 'all 0.3s ease',
-                                width: isPlaying === index ? '30%' : '0%'
-                            }}></div>
+                        <div className="progress-bar">
+                            <div
+                                className={`progress ${isPlaying === index ? "active" : ""}`}
+                            ></div>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Songs;

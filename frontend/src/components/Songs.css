@@ -1,1 +1,123 @@
-/* Songs styles now handled by Tailwind CSS */
+.songs-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.songs-title {
+    color: #fff;
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.song-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.song-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.song-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.song-title {
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.song-artist {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0.25rem 0 0 0;
+}
+
+.song-action {
+    margin-left: 1rem;
+}
+
+.play-button {
+    display: flex;
+    height: 48px;
+    width: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #38e07b;
+    color: #111714;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-icon {
+    font-size: 1.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    height: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #2e9eff;
+    height: 4px;
+    border-radius: 9999px;
+    transition: all 0.2s linear;
+    width: 0%;
+}
+
+.progress.active {
+    width: 100%;
+    animation: progressAnim 0.3s alternate infinite;
+}
+
+@keyframes progressAnim {
+    0% {
+        width: 0%;
+    }
+
+    25% {
+        width: 40%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    75% {
+        width: 90%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

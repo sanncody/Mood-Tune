@@ -1,0 +1,63 @@
+.app-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #111714;
+    color: #fff;
+    font-family: "Public Sans", "Noto Sans", sans-serif;
+}
+
+.app-wrapper {
+    display: flex;
+    height: 100%;
+    flex: 1;
+    flex-direction: column;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.main-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.main-title {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    max-width: 800px;
+    line-height: 1.1;
+}
+
+.main-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.songs-wrapper {
+    padding: 0 1rem 2rem;
+}

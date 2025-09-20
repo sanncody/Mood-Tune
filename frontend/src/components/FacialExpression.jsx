@@ -43,7 +43,7 @@ export default function FacialExpression({ setSongs }) {
 
         try {
             const moodSongsRes = await axios.get(
-                `http://localhost:5500/api/get-songs-by-mood?mood=${faceExpression}`
+                `https://mood-tune-tb2b.onrender.com/api/get-songs-by-mood?mood=${faceExpression}`
             );
             setSongs(moodSongsRes.data.songsByMood);
         } catch (error) {

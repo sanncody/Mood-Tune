@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Songs.css';
+import '../css/Songs.css';
 
 const Songs = ({ songs }) => {
     const [isPlaying, setIsPlaying] = useState(false);

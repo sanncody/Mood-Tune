@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
 import * as faceapi from 'face-api.js';
-import './FacialExpression.css';
+import '../css/FacialExpression.css';
 
 export default function FacialExpression({ setSongs }) {
     const videoRef = useRef();

@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import * as faceapi from 'face-api.js';
 import '../css/FacialExpression.css';
 
-export default function FacialExpression({ setSongs }) {
+export default function FacialExpression({ setSongs, setStatus }) {
     const videoRef = useRef();
 
     const loadModels = async () => {
@@ -30,6 +30,8 @@ export default function FacialExpression({ setSongs }) {
 
         if (!detections || detections.length === 0) {
             console.log("No face detected");
+            setSongs([]);
+            setStatus("No Face Detected");
             return;
         }
 
@@ -39,13 +41,16 @@ export default function FacialExpression({ setSongs }) {
                 faceExpression = expression;
             }
         }
+
         console.log(faceExpression);
+        setStatus(`Detected: ${faceExpression}`);
 
         try {
             const moodSongsRes = await axios.get(
                 `https://mood-tune-tb2b.onrender.com/api/get-songs-by-mood?mood=${faceExpression}`
             );
             setSongs(moodSongsRes.data.songsByMood);
+            setStatus(`Songs fetched for mood: ${faceExpression}`);
         } catch (error) {
             console.error("Error fetching songs:", error);
         }

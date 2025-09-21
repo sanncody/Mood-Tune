@@ -6,6 +6,7 @@ import Header from './components/Header';
 
 function App() {
   const [songs, setSongs] = useState([]);
+  const [status, setStatus] = useState("");
 
   return (
     <div className="app-container">
@@ -19,7 +20,9 @@ function App() {
                 Let us analyze your mood to curate a personalized music experience just for you.
               </p>
             </div>
-            <FacialExpression songs={songs} setSongs={setSongs} />
+            <FacialExpression songs={songs} setSongs={setSongs} setStatus={setStatus} />
+
+            { status && <h3>{status}</h3> }
           </div>
         </main>
         {songs.length > 0 && (

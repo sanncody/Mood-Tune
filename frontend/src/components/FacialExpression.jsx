@@ -31,7 +31,7 @@ export default function FacialExpression({ setSongs, setStatus }) {
         if (!detections || detections.length === 0) {
             console.log("No face detected");
             setSongs([]);
-            setStatus("No Face Detected");
+            setStatus(<div className="status-pill error">No face detected</div>);
             return;
         }
 
@@ -43,14 +43,19 @@ export default function FacialExpression({ setSongs, setStatus }) {
         }
 
         console.log(faceExpression);
-        setStatus(`Detected: ${faceExpression}`);
+        setStatus(<div className="status-pill">Detected: <strong>{faceExpression}</strong></div>);
 
         try {
             const moodSongsRes = await axios.get(
                 `https://mood-tune-tb2b.onrender.com/api/get-songs-by-mood?mood=${faceExpression}`
             );
             setSongs(moodSongsRes.data.songsByMood);
-            setStatus(`Songs fetched for mood: ${faceExpression}`);
+            setStatus(
+                <div className="status-banner">
+                    <h3 className="status-title">Songs for mood</h3>
+                    <span className="status-mood">{faceExpression}</span>
+                </div>
+            );
         } catch (error) {
             console.error("Error fetching songs:", error);
         }

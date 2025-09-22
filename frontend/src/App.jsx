@@ -6,7 +6,7 @@ import Header from './components/Header';
 
 function App() {
   const [songs, setSongs] = useState([]);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(null);
 
   return (
     <div className="app-container">
@@ -22,7 +22,7 @@ function App() {
             </div>
             <FacialExpression songs={songs} setSongs={setSongs} setStatus={setStatus} />
 
-            { status && <h3>{status}</h3> }
+            {status && <div className="status-wrapper">{status}</div>}
           </div>
         </main>
         {songs.length > 0 && (

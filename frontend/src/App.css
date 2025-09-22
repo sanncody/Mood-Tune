@@ -61,3 +61,51 @@
 .songs-wrapper {
     padding: 0 1rem 2rem;
 }
+
+.status-wrapper {
+    margin-top: 0.5rem;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 3rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.status-pill.error {
+    background: rgba(255, 71, 87, 0.15);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+
+.status-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(20, 20, 20, 0.85);
+}
+
+.status-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.status-mood {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background: #2e7d32;
+    color: #fff;
+    font-weight: 600;
+    text-transform: capitalize;
+}

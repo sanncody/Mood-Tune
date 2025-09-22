@@ -3,6 +3,7 @@ import '../css/Header.css';
 
 const Header = () => {
     const [darkMode, setDarkMode] = useState(true);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         document.body.classList.toggle("dark-mode", darkMode);
@@ -47,7 +48,27 @@ const Header = () => {
                 <button className="profile-button">
                     <div className="profile-pic"></div>
                 </button>
+
+                {/* Hamburger */}
+                <button className="hamburger" onClick={() => setIsMenuOpen((prev) => !prev)} aria-expanded={isMenuOpen} aria-haspopup="menu" aria-label="Open menu">
+                    <i className="ri-menu-line"></i>
+                </button>
             </div>
+            {isMenuOpen && (
+                <div className="mobile-menu" role="menu">
+                    <a href="/" className="menu-item" role="menuitem" onClick={() => setIsMenuOpen(false)}>Home</a>
+                    <a href="/playlists/#" className="menu-item" role="menuitem" onClick={() => setIsMenuOpen(false)}>Playlists</a>
+                    <a href="/settings/#" className="menu-item" role="menuitem" onClick={() => setIsMenuOpen(false)}>Settings</a>
+                    <button className="menu-item" onClick={() => { setDarkMode(!darkMode); setIsMenuOpen(false); }}>
+                        {darkMode ? 'Light Mode' : 'Dark Mode'}
+                    </button>
+                    <button className="menu-item" onClick={() => setIsMenuOpen(false)}>Notifications</button>
+                    <button className="menu-item profile-item" onClick={() => setIsMenuOpen(false)}>
+                        <div className="profile-pic small"></div>
+                        <span>Profile</span>
+                    </button>
+                </div>
+            )}
         </header>
     );
 };

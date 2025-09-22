@@ -5,10 +5,12 @@
     white-space: nowrap;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem 2.5rem;
-    position: sticky;
+    position: fixed;
     top: 0;
-    background-color: inherit;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    background-color: black;
+    z-index: 0;
 }
 
 .header-left {
@@ -48,6 +50,48 @@
     gap: 1rem;
 }
 
+.mobile-menu {
+    position: fixed;
+    top: 64px;
+    right: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(20, 20, 20, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    z-index: 1100;
+}
+
+.menu-item {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-pic.small {
+    width: 28px;
+    height: 28px;
+}
+
 .icon-button {
     display: flex;
     height: 40px;
@@ -82,22 +126,62 @@
     border-radius: 50%;
 }
 
+.header-actions .hamburger {
+    display: none;
+}
+
 /* Theme Modes */
 body.dark-mode {
-    background-color: #111714;
-    color: #fff;
+    background-color: #121212;
+    color: #ffffff;
 }
 
-body:not(.dark-mode) {
-    background-color: #f9f9f9;
-    color: #111;
+body.dark-mode .header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body:not(.dark-mode) .header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+body.dark-mode .title,
+body.dark-mode .nav a {
+    color: rgba(255, 255, 255, 0.9);
 }
 
-body:not(.dark-mode) .title,
-body:not(.dark-mode) .nav a {
-    color: #111;
+body.dark-mode .icon-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
 }
+
+body.dark-mode .icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 700px) {
+    .header {
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+
+    .icon-button,
+    .profile-button {
+        display: none;
+    }
+
+    .header-actions .hamburger {
+        display: block;
+        font-size: 20px;
+    }
+
+    .nav {
+        display: none;
+    }
+}
+
+/* Prevent content from hiding behind fixed header */
+body {
+    padding-top: 72px;
+}
+
+/* @media (max-width: 700px) {
+    body {
+        padding-top: 64px;
+    }
+} */

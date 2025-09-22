@@ -16,7 +16,7 @@ const Header = () => {
                 <svg className="logo" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="#38e07b"></path>
                 </svg>
-                <h1 className="title">Mood Tune</h1>
+                <h1 className="title">Mood-Tune</h1>
             </div>
 
             {/* Navigation */}

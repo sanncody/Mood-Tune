@@ -43,7 +43,7 @@ export default function FacialExpression({ setSongs, setStatus }) {
         }
 
         console.log(faceExpression);
-        setStatus(<div className="status-pill">Detected: <strong>{faceExpression}</strong></div>);
+        setStatus(<div className="status-pill">Detected: <span className='status-mood'>{faceExpression}</span></div>);
 
         try {
             const moodSongsRes = await axios.get(
